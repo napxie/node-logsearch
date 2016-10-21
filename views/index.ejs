@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+Search file:
+<input id="fileName" type="text"/>
+<button id="btnSearch">查询</button>
+
+
+<style>
+  ul li {
+    list-style: none;
+    float: left;
+    width: 50px;
+    height: 20px;
+    border: 1px solid #007aff;
+  }
+
+  ul li.active {
+    background: #6A6AFF;
+  }
+
+  .content {
+    clear: both;
+    height: 100px;
+    border: 1px solid #007aff;
+  }
+</style>
+
+<div>
+  <div class="tab">
+    <ul>
+      <li id="a1" class='active'>Tab页1</li>
+      <li id="a2">Tab页2</li>
+      <li id="a3">Tab页3</li>
+      <li id="a4">Tab页4</li>
+      <li id="a5">Tab页5</li>
+    </ul>
+    <div class="content">
+      <div id="tab_a1" style="display: block">
+        tab1 content.
+      </div>
+      <div id="tab_a2" style="display: none">
+        tab2 content.
+      </div>
+      <div id="tab_a3" style="display: none">
+        tab3 content.
+      </div>
+      <div id="tab_a4" style="display: none">
+        tab4 content.
+      </div>
+      <div id="tab_a5" style="display: none">
+        tab5 content.
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.global.js"></script>
+<script src="js/plugs/jquery.tab.js"></script>
+<script>
+
+  $(function () {
+    var options = //参数对象options:
+    {
+      activeClass: 'active',  //激活样式
+      event: 'click', //默认是'click'，常用的可设'hover',
+      callback: function (current) {
+      }  //回调函数
+    }
+    $('.tab').tab(options);
+
+  });
+
+</script>
+
+
+<script>
+  $(function () {
+
+    $("#btnSearch").on('click', function () {
+      var fileName = $('#fileName').val();
+      alert(fileName);
+      location.href="search?name=" + fileName;
+
+    });
+
+  });
+</script>
+</body>
+</html>

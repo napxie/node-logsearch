@@ -1,0 +1,11 @@
+/**
+ * Created by nap on 16-10-21.
+ */
+
+var $ = require("mongous").Mongous;
+
+$("log.col").find(5, {"name":"fileName"},function(r){
+
+    console.log(r);
+
+});
